@@ -13,7 +13,6 @@
       overflow: hidden;
       font-family: "Inter", sans-serif;
     }
-
     #startBtn {
       position: absolute;
       top: 50%;
@@ -28,7 +27,6 @@
       border-radius: 8px;
       z-index: 10;
     }
-
     .overlay, .scare {
       position: fixed;
       top: 0;
@@ -36,7 +34,6 @@
       height: 100vh;
       width: 100vw;
     }
-
     .overlay {
       z-index: 9;
       display: flex;
@@ -46,31 +43,26 @@
       background-size: cover;
       background-position: center 0;
     }
-
     .overlay[hidden] {
       display: none;
     }
-
     .text-bg {
       background-color: rgba(255, 255, 255, 0.6);
       padding: 24px;
       max-width: 512px;
       text-align: center;
     }
-
     .overlay-title {
       font-size: 24px;
       font-weight: 900;
       color: black;
       margin-bottom: 16px;
     }
-
     .overlay-description {
       font-size: 16px;
       color: rgba(0, 0, 0, 0.7);
       margin-bottom: 16px;
     }
-
     .overlay-button {
       display: inline-flex;
       align-items: center;
@@ -82,17 +74,14 @@
       cursor: pointer;
       border-radius: 4px;
     }
-
     #accept-button {
       background-color: red;
       color: white;
     }
-
     #decline-button {
       border: 2px solid black;
       color: black;
     }
-
     video#video {
       width: 100%;
       height: 100%;
@@ -100,7 +89,6 @@
       display: none;
       z-index: 1;
     }
-
     video#video::-webkit-media-controls-enclosure {
       display: none !important;
     }
@@ -108,7 +96,6 @@
 </head>
 <body>
   <button id="startBtn">點我</button>
-
   <div id="overlay" class="overlay" hidden>
     <div class="text-bg">
       <p class="overlay-title">可能需要再點一次</p>
@@ -118,9 +105,7 @@
       </div>
     </div>
   </div>
-
   <video id="video" src="https://vdse.bdstatic.com/192d9a98d782d9c74c96f09db9378d93.mp4"></video>
-
   <script>
     const startBtn = document.getElementById("startBtn");
     const overlay = document.getElementById("overlay");
@@ -141,9 +126,11 @@
       enterFullscreen(document.documentElement);
     });
 
-    declineButton.addEventListener("click", () => {
-      window.open("https://xingye.me/game/index6.php", "_blank");
-    });
+    if (declineButton) {
+      declineButton.addEventListener("click", () => {
+        window.open("https://xingye.me/game/index6.php", "_blank");
+      });
+    }
 
     video.addEventListener("click", (e) => {
       e.preventDefault();
